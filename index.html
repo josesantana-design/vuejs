@@ -32,6 +32,15 @@
             		Mujer: <input type="radio" v-model="gender" value="f">
             	</label>
 
+            	<p>Cuantos años de experiencia tienes con PHP?</p>
+
+            	<p>
+            		Respuesta: <strong> {{ years_php }} </strong>
+
+            		<button type="button" class="btn" @click="addYear">+</button>
+            		<button type="button" :disabled="years_php == 0" class="btn" @click="subYear">-</button>
+            	</p>
+
 				<p v-show="name">				
 					<button type="submit" class="btn btn-info" @click.prevent="signUp">Registrar</button>
 				</p>
