@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vuejs</title>
+	<script src="vue.js"></script>
+	<link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body id="app">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<template  v-if="name">
+					<h1> {{ gender == 'm' ? 'Bienvenido' : 'Bienvenida' }}, {{ name }}</h1>
+					<p>Espero que disfrutes tu visita</p>
+				</template>
+
+				<p v-else>Por favor escribe tu nombre:</p>
+
+			<form>
+	
+
+				<input type="text" v-model="name" class="form-control">
+
+				<p v-if="name == ''" class="alert alert-danger">Este campo es obligatorio</p>
+
+            	<label>
+            		Hombre: <input type="radio" v-model="gender" value="m">
+            	</label>
+
+            	<label>
+            		Mujer: <input type="radio" v-model="gender" value="f">
+            	</label>
+
+				<p v-show="name">				
+					<button type="submit" class="btn btn-info" @click.prevent="signUp">Registrar</button>
+				</p>
+			</form>
+
+				<hr>
+
+				<pre> {{ $data | json }} </pre>
+			</div>
+		</div>
+	</div>
+
+	
+	<script src="script.js"></script>
+</body>
+</html>
